@@ -11,8 +11,20 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen
+          options={{
+            title: 'Zomato Search',
+          }}
+          name="Home"
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Detail"
+          options={({route}) => ({
+            title: route.params.title || 'Detail Screen',
+          })}
+          component={DetailScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
